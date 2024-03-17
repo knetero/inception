@@ -45,17 +45,17 @@ services:
       - inc
 volumes:
   wordpressfiles:
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /Users/abazerou/data/wordpress
-    #   o: bind
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/abazerou/data/wordpress
+      o: bind
   mariadb:
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /Users/abazerou/data/mariadb
-    #   o: bind
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/abazerou/data/mariadb
+      o: bind
 networks:
   inc:
     driver: bridge
