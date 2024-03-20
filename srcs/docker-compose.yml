@@ -48,13 +48,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/abazerou/data/wordpress
+      device: /home/abazerou/data/wordpress
       o: bind
   mariadb:
     driver: local
     driver_opts:
       type: none
-      device: /Users/abazerou/data/mariadb
+      device: /home/abazerou/data/mariadb
       o: bind
 networks:
   inc:
