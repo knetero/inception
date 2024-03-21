@@ -32,7 +32,7 @@ services:
     image: wordpress:inception
     container_name: wordpress
     build: ./requirements/wordpress
-    ports:
+    ports: 
       - "9000:9000"
     env_file:
       - .env

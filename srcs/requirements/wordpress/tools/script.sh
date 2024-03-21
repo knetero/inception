@@ -3,7 +3,8 @@
 # Define the WordPress path
 WP_PATH="/var/www/html"
 
-# Update PHP configurations
+# Update PHP configurations , listen on TCP port 9000 instead of the default Unix socket. 
+# This change allows NGINX to communicate with PHP-FPM over a network port.
 sed -i "s|listen = /run/php/php7.4-fpm.sock|listen = 9000|g" /etc/php/7.4/fpm/pool.d/www.conf
 
 
@@ -41,6 +42,9 @@ if [ ! -f "$WP_PATH/wp-config.php" ]; then
                     --admin_email="$WP_USER_EMAIL" \
                     --path="$WP_PATH" \
                     --allow-root
+
+    # Create a new user
+    wp user create --allow-root ${WP_USER} ${WP_EMAIL} --user_pass=${USER_PASS}
 
     echo "${GREEN}WORDPRESS INSTALLATION FINISHED.${NC}"
 else
